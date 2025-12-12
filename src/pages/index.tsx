@@ -1,10 +1,13 @@
+import AllMovie from "@/component/all-movie/all-movie";
+import RecommendMovie from "@/component/recommend-movie/recommend-movie";
 import SearchableLayout from "@/component/searchable-layout";
 import { ReactNode } from "react";
 
 export default function Home() {
   return (
     <>
-      {/* <h1>ONEBITE CINEMA</h1> */}
+      <RecommendMovie />
+      <AllMovie />
     </>
   );
 }
