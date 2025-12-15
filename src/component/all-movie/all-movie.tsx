@@ -1,14 +1,14 @@
+import { MovieData } from "@/types";
 import MovieItem from "../common/movie-item";
 import style from "./all-movie.module.css";
-import movie from "@/dummy/dummy.json";
 
-export default function AllMovie() {
+export default function AllMovie({ movies }: { movies: MovieData[] }) {
   return (
     <section>
       <div className={style.all_movie_container}>
         <h3>등록된 모든 영화</h3>
         <div className={style.all_movie_list}>
-          {movie.map((movie) => (
+          {movies.map((movie) => (
             <MovieItem key={movie.id} {...movie} />
           ))}
         </div>
