@@ -3,13 +3,13 @@ import RecommendMovie from "@/component/recommend-movie/recommend-movie";
 import SearchableLayout from "@/component/searchable-layout";
 import { fetchAllMovies } from "@/lib/fetch-movies";
 import { fetchRecommendMovies } from "@/lib/fetch-recomment-movies";
-import { InferGetServerSidePropsType } from "next";
+import { InferGetStaticPropsType } from "next";
 import { ReactNode } from "react";
 
 export default function Home({
   allMovies,
   recommendMovies,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <RecommendMovie movies={recommendMovies} />
@@ -18,7 +18,7 @@ export default function Home({
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   // /movie - 모든 영화 불러오기
   // /random - 영화 3개를 불러온다.
   const [allMovies, recommendMovies] = await Promise.all([
